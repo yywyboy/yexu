@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "叶序陶瓷杯",
+      "price": 88,
+      "description": "灵感源自斐波那契数列的陶瓷杯，杯身呈现完美的螺旋纹理",
+      "category": "家居装饰",
+      "image": "placeholder.jpg",
+      "features": ["优质陶瓷", "手工绘制", "环保釉料"]
+    },
+    {
+      "id": 2,
+      "name": "银杏叶笔记本",
+      "price": 42,
+      "description": "封面采用银杏叶图案，内页纸张环保再生，记录每一个灵感瞬间",
+      "category": "文具用品",
+      "image": "placeholder.jpg",
+      "features": ["硬壳精装", "180页", "可平摊设计"]
+    },
+    {
+      "id": 3,
+      "name": "植物纹样丝巾",
+      "price": 198,
+      "description": "以自然植物叶片为灵感的真丝丝巾，色彩优雅，质地柔软",
+      "category": "服饰配件",
+      "image": "placeholder.jpg",
+      "features": ["100%桑蚕丝", "90×90cm", "手工卷边"]
+    },
+    {
+      "id": 4,
+      "name": "叶序艺术相框",
+      "price": 128,
+      "description": "木质相框，边框雕刻精美叶序图案，为照片增添艺术氛围",
+      "category": "家居装饰",
+      "image": "placeholder.jpg",
+      "features": ["原木材质", "8×10英寸", "可摆可挂"]
+    },
+    {
+      "id": 5,
+      "name": "树叶图案书签套装",
+      "price": 36,
+      "description": "一套6枚精美书签，展示不同树叶的独特纹理和排列方式",
+      "category": "文具用品",
+      "image": "placeholder.jpg",
+      "features": ["金属材质", "双面设计", "精美礼盒"]
+    },
+    {
+      "id": 6,
+      "name": "叶序图案帆布袋",
+      "price": 79,
+      "description": "大容量帆布购物袋，印有简约叶序图案，环保实用",
+      "category": "服饰配件",
+      "image": "placeholder.jpg",
+      "features": ["16安帆布", "加固提手", "内贴口袋"]
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "全部商品"
+    },
+    {
+      "id": "家居装饰",
+      "name": "家居装饰"
+    },
+    {
+      "id": "文具用品",
+      "name": "文具用品"
+    },
+    {
+      "id": "服饰配件",
+      "name": "服饰配件"
+    }
+  ]
+}
