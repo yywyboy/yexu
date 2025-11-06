@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周边产品 - 叶序艺术</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入字体 Awesome 用于图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>叶序</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="shuye.html">树叶</a></li>
+                <li><a href="zhoubian.html" class="active">周边</a></li>
+                <li><a href="huaxiang.html">画廊</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+    <style>
+        /* 周边页面特有样式 */
+        .shop-header {
+            position: relative;
+            padding: 180px 0 120px;
+            background-color: #f5f9f7;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .shop-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%233a7d44" fill-opacity="0.05" d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"></path></svg>');
+            z-index: 0;
+        }
+        
+        .shop-header h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .shop-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 产品分类部分 */
+        .categories {
+            padding: 80px 0 40px;
+            background-color: white;
+        }
+        
+        .categories h2 {
+            font-size: 2rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .category-tab {
+            padding: 10px 25px;
+            background-color: var(--light-color);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            border: 2px solid transparent;
+        }
+        
+        .category-tab:hover,
+        .category-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(58, 125, 68, 0.2);
+        }
+        
+        /* 产品展示部分 */
+        .products {
+            padding: 40px 0 100px;
+            background-color: white;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(58, 125, 68, 0.1);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-image::before {
+            opacity: 1;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-category {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .product-title {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .product-description {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .add-to-cart {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #2d6336;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(58, 125, 68, 0.2);
+        }
+        
+        .view-more {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            padding: 15px 40px;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .view-more:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(58, 125, 68, 0.2);
+        }
+        
+        /* 特色产品部分 */
+        .featured-product {
+            padding: 120px 0;
+            background-color: var(--light-color);
+        }
+        
+        .featured-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .featured-image {
+            flex: 1;
+            min-width: 300px;
+            height: 500px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .featured-wrapper:hover .featured-image img {
+            transform: scale(1.05);
+        }
+        
+        .featured-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .featured-details h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 25px;
+        }
+        
+        .featured-details p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+        
+        .featured-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        .featured-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .featured-actions .btn-primary {
+            min-width: 150px;
+        }
+        
+        .featured-actions .btn-secondary {
+            min-width: 120px;
+        }
+        
+        /* 制作理念部分 */
+        .craftsmanship {
+            padding: 120px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .craftsmanship h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .craftsmanship h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .craftsmanship p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+        
+        .craftsmanship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .craftsmanship-item {
+            padding: 40px 20px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .craftsmanship-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .craftsmanship-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .craftsmanship-item i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .craftsmanship-item:hover i {
+            transform: scale(1.1);
+        }
+        
+        .craftsmanship-item h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .craftsmanship-item p {
+            max-width: none;
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        /* 购物车悬浮按钮 */
+        .cart-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(58, 125, 68, 0.3);
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .cart-button:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(58, 125, 68, 0.4);
+        }
+        
+        .cart-button i {
+            font-size: 1.5rem;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .shop-header {
+                padding: 150px 0 100px;
+            }
+            
+            .shop-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 30px;
+            }
+            
+            .featured-wrapper {
+                gap: 30px;
+            }
+            
+            .featured-details h2 {
+                font-size: 2rem;
+            }
+            
+            .craftsmanship h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .shop-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories h2,
+            .featured-details h2,
+            .craftsmanship h2 {
+                font-size: 1.8rem;
+            }
+            
+            .featured-image {
+                height: 350px;
+            }
+            
+            .category-tabs {
+                gap: 10px;
+            }
+            
+            .category-tab {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>叶序</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="shuye.html">树叶</a></li>
+                <li><a href="zhoubian.html" class="active">周边</a></li>
+                <li><a href="huaxiang.html">画廊</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="shop-header">
+        <div class="container">
+            <h1>叶序周边</h1>
+            <p>将自然的数学之美融入日常生活，每一件产品都讲述着树叶排列的故事</p>
+        </div>
+    </section>
+
+    <!-- 产品分类部分 -->
+    <section class="categories">
+        <div class="container">
+            <h2>浏览分类</h2>
+            
+            <div class="category-tabs">
+                <div class="category-tab active">全部产品</div>
+                <div class="category-tab">家居装饰</div>
+                <div class="category-tab">文具用品</div>
+                <div class="category-tab">服饰配件</div>
+                <div class="category-tab">艺术收藏</div>
+                <div class="category-tab">礼品套装</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示部分 -->
+    <section class="products">
+        <div class="container">
+            <div class="product-grid">
+                <!-- 产品卡片1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23e9ecef'/><circle cx='200' cy='150' r='100' fill='%2386b875' fill-opacity='0.7'/><path d='M200 50 Q300 150 200 250 Q100 150 200 50' fill='none' stroke='%233a7d44' stroke-width='5'/><path d='M200 50 Q150 150 200 250 Q250 150 200 50' fill='none' stroke='%233a7d44' stroke-width='5'/></svg>" alt="叶序装饰画">
+                        <div class="product-badge">畅销</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">家居装饰</div>
+                        <h3 class="product-title">斐波那契螺旋装饰画</h3>
+                        <p class="product-description">基于向日葵花盘的数学排列设计，采用高质量画布印刷，展现自然之美的艺术装饰。</p>
+                        <div class="product-footer">
+                            <div class="product-price">¥299</div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品卡片2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23e9ecef'/><rect x='100' y='50' width='200' height='200' rx='10' fill='%23ffffff' stroke='%233a7d44' stroke-width='3'/><path d='M150 100 Q200 150 250 100 Q300 150 250 200 Q200 250 150 200 Q100 150 150 100' fill='none' stroke='%2386b875' stroke-width='4'/><circle cx='200' cy='150' r='10' fill='%233a7d44'/></svg>" alt="叶序笔记本">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">文具用品</div>
+                        <h3 class="product-title">叶序图案笔记本</h3>
+                        <p class="product-description">封面印有精美叶序图案，内页采用优质纸张，适合记录灵感与创意，感受自然之美。</p>
+                        <div class="product-footer">
+                            <div class="product-price">¥68</div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品卡片3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23e9ecef'/><path d='M100 150 Q200 50 300 150 Q200 250 100 150' fill='%23ffffff' stroke='%233a7d44' stroke-width='3'/><path d='M150 150 Q200 100 250 150 Q200 200 150 150' fill='none' stroke='%2386b875' stroke-width='3'/><path d='M175 150 Q200 125 225 150 Q200 175 175 150' fill='none' stroke='%23d4a76a' stroke-width='2'/></svg>" alt="叶序手链">
+                        <div class="product-badge">新品</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">服饰配件</div>
+                        <h3 class="product-title">叶序螺旋手链</h3>
+                        <p class="product-description">灵感来源于植物叶序排列的精美手链，采用优质不锈钢材质，展现自然数学之美。</p>
+                        <div class="product-footer">
+                            <div class="product-price">¥129</div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品卡片4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23e9ecef'/><circle cx='200' cy='150' r='100' fill='none' stroke='%233a7d44' stroke-width='3'/><path d='M200 50 L220 90 L270 95 L235 125 L245 170 L200 150 L155 170 L165 125 L130 95 L180 90 Z' fill='%2386b875' fill-opacity='0.7'/></svg>" alt="叶序模型">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">艺术收藏</div>
+                        <h3 class="product-title">3D叶序结构模型</h3>
+                        <p class="product-description">精确还原植物叶序生长结构的3D打印模型，采用环保材料制作，是科学与艺术的完美结合。</p>
+                        <div class="product-footer">
+                            <div class="product-price">¥399</div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品卡片5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23e9ecef'/><rect x='120' y='80' width='160' height='160' fill='%23ffffff' stroke='%233a7d44' stroke-width='3'/><path d='M150 100 L250 100 L250 220 L150 220 Z' fill='none' stroke='%2386b875' stroke-width='2'/><path d='M180 100 L180 220' fill='none' stroke='%2386b875' stroke-width='2'/><path d='M210 100 L210 220' fill='none' stroke='%2386b875' stroke-width='2'/><path d='M240 100 L240 220' fill='none' stroke='%2386b875' stroke-width='2'/><path d='M150 140 L250 140' fill='none' stroke='%2386b875' stroke-width='2'/><path d='M150 180 L250 180' fill='none' stroke='%2386b875' stroke-width='2'/></svg>" alt="叶序书签套装">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">文具用品</div>
+                        <h3 class="product-title">叶序书签套装</h3>
+                        <p class="product-description">包含四种不同叶序排列方式的金属书签套装，设计精美，是阅读爱好者的理想选择。</p>
+                        <div class="product-footer">
+                            <div class="product-price">¥89</div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品卡片6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23e9ecef'/><path d='M200 50 L250 100 L350 120 L300 180 L320 280 L200 230 L80 280 L100 180 L50 120 L150 100 Z' fill='none' stroke='%233a7d44' stroke-width='3' fill='%23ffffff'/><circle cx='200' cy='150' r='10' fill='%23d4a76a'/><path d='M200 50 L200 140 M250 100 L220 140 M350 120 L280 145 M300 180 L260 150 M320 280 L230 170 M200 230 L200 160 M80 280 L170 170 M100 180 L140 150 M50 120 L120 145 M150 100 L180 140' fill='none' stroke='%2386b875' stroke-width='2'/></svg>" alt="叶序挂钟">
+                        <div class="product-badge">限量</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">家居装饰</div>
+                        <h3 class="product-title">叶序设计挂钟</h3>
+                        <p class="product-description">独特的叶序排列时钟设计，将时间与自然数学之美完美结合，为您的家居增添艺术气息。</p>
+                        <div class="product-footer">
+                            <div class="product-price">¥459</div>
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="view-more">查看更多产品</a>
+        </div>
+    </section>
+
+    <!-- 特色产品部分 -->
+    <section class="featured-product">
+        <div class="container">
+            <div class="featured-wrapper">
+                <div class="featured-image">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'><rect width='600' height='800' fill='%23e9ecef'/><circle cx='300' cy='400' r='300' fill='none' stroke='%233a7d44' stroke-width='5'/><path d='M300 100 L350 200 L450 220 L400 320 L420 420 L300 380 L180 420 L200 320 L150 220 L250 200 Z' fill='%23ffffff' stroke='%2386b875' stroke-width='3'/><circle cx='300' cy='380' r='50' fill='%23d4a76a' fill-opacity='0.7'/><path d='M300 100 L300 330 M350 200 L320 330 M450 220 L350 330 M400 320 L370 330 M420 420 L330 350 M300 380 L300 350 M180 420 L270 350 M200 320 L230 330 M150 220 L250 330 M250 200 L280 330' fill='none' stroke='%233a7d44' stroke-width='2'/></svg>" alt="限量版叶序艺术装置">
+                </div>
+                <div class="featured-details">
+                    <div class="featured-badge">限量版</div>
+                    <h2>黄金角叶序艺术装置</h2>
+                    <p>这款限量版艺术装置精确展现了自然中137.5°黄金角的完美排列。采用高质量金属材质，表面经过特殊处理，呈现出优雅的金属光泽。每个角度都经过精密计算，完美还原向日葵花盘中种子的排列方式。</p>
+                    <p>不仅是一件精美的艺术品，更是自然数学之美的完美诠释，适合放置于客厅、书房或办公室，为您的空间增添独特的艺术气息。每一件作品都有独立编号和收藏证书，限量发行500件。</p>
+                    <div class="featured-price">¥1,299</div>
+                    <div class="featured-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-shopping-cart"></i> 立即购买
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-heart"></i> 收藏
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 制作理念部分 -->
+    <section class="craftsmanship">
+        <div class="container">
+            <h2>我们的制作理念</h2>
+            <p>每件叶序产品都融合了自然之美与数学之韵，通过精心设计和精湛工艺，将植物生长的奥秘转化为可触摸的艺术</p>
+            
+            <div class="craftsmanship-grid">
+                <div class="craftsmanship-item">
+                    <i class="fas fa-seedling"></i>
+                    <h3>自然启发</h3>
+                    <p>所有产品设计都直接来源于对自然中植物叶序排列的观察和研究，保持对自然的敬畏之心。</p>
+                </div>
+                <div class="craftsmanship-item">
+                    <i class="fas fa-calculator"></i>
+                    <h3>数学精确</h3>
+                    <p>精确应用斐波那契数列和黄金比例等数学原理，确保每件产品都准确展现自然的数学之美。</p>
+                </div>
+                <div class="craftsmanship-item">
+                    <i class="fas fa-hands"></i>
+                    <h3>匠心工艺</h3>
+                    <p>采用优质材料和精湛工艺，注重细节处理，确保每件产品都具有高品质和耐久性。</p>
+                </div>
+                <div class="craftsmanship-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>环保理念</h3>
+                    <p>坚持环保理念，尽可能使用可持续材料和环保工艺，减少对环境的影响。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>叶序</h2>
+                    <p>艺术与自然的和谐</p>
+                </div>
+                <div class="footer-links">
+                    <h3>导航</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="shuye.html">树叶</a></li>
+                        <li><a href="zhoubian.html">周边</a></li>
+                        <li><a href="huaxiang.html">画廊</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-weibo"></i></a></li>
+                        <li><a href="#"><i class="fab fa-weixin"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我们</h3>
+                    <p>邮箱：info@yexu.com</p>
+                    <p>电话：123-4567-8910</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 叶序艺术. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 购物车悬浮按钮 -->
+    <div class="cart-button">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-count">0</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏交互
+        document.addEventListener('DOMContentLoaded', function() {
+            // 汉堡菜单切换
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const navbar = document.querySelector('.navbar');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+            
+            // 点击导航链接关闭菜单
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+            
+            // 滚动时导航栏变化
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // 汉堡菜单切换
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // 点击导航链接关闭菜单
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            // 滚动时导航栏变化
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // 从JSON文件加载产品数据
+            function loadProducts() {
+                fetch('products.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const productsGrid = document.querySelector('.products-grid');
+                        const categoryTabs = document.querySelector('.category-tabs');
+                        
+                        // 清空现有的标签和产品
+                        categoryTabs.innerHTML = '';
+                        
+                        // 渲染所有分类标签
+                        data.categories.forEach(category => {
+                            const tab = document.createElement('button');
+                            tab.className = `category-tab ${category.id === 'all' ? 'active' : ''}`;
+                            tab.dataset.category = category.id;
+                            tab.textContent = category.name;
+                            categoryTabs.appendChild(tab);
+                        });
+                        
+                        // 清空并重新渲染所有产品
+                        productsGrid.innerHTML = '';
+                        renderProducts(data.products);
+                        
+                        // 绑定分类切换事件
+                        document.querySelectorAll('.category-tab').forEach(tab => {
+                            tab.addEventListener('click', function() {
+                                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                                this.classList.add('active');
+                                
+                                const category = this.dataset.category;
+                                let filteredProducts = data.products;
+                                
+                                if (category && category !== 'all') {
+                                    filteredProducts = data.products.filter(product => 
+                                        product.category === category
+                                    );
+                                }
+                                
+                                // 清空并重新渲染产品
+                                productsGrid.innerHTML = '';
+                                renderProducts(filteredProducts);
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('加载产品数据失败:', error);
+                        // 如果加载失败，显示默认产品
+                        showDefaultProducts();
+                    });
+            }
+            
+            // 显示默认产品（加载失败时）
+            function showDefaultProducts() {
+                const productsGrid = document.querySelector('.products-grid');
+                const categoryTabs = document.querySelector('.category-tabs');
+                
+                // 创建默认分类标签
+                categoryTabs.innerHTML = '';
+                const allTab = document.createElement('button');
+                allTab.className = 'category-tab active';
+                allTab.dataset.category = 'all';
+                allTab.textContent = '全部商品';
+                categoryTabs.appendChild(allTab);
+                
+                // 默认产品数据
+                const defaultProducts = [
+                    {
+                        id: 1,
+                        name: '叶序陶瓷杯',
+                        price: 88,
+                        description: '灵感源自斐波那契数列的陶瓷杯',
+                        image: 'placeholder.jpg',
+                        category: '家居装饰'
+                    },
+                    {
+                        id: 2,
+                        name: '银杏叶笔记本',
+                        price: 42,
+                        description: '封面采用银杏叶图案',
+                        image: 'placeholder.jpg',
+                        category: '文具用品'
+                    }
+                ];
+                
+                renderProducts(defaultProducts);
+            }
+            
+            // 渲染产品列表
+            function renderProducts(products) {
+                const productsGrid = document.querySelector('.products-grid');
+                
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.dataset.category = product.category;
+                    
+                    // 检查产品是否有特殊标签（畅销/新品/限量）
+                    let badgeHTML = '';
+                    if (product.badge) {
+                        badgeHTML = `<div class="product-badge">${product.badge}</div>`;
+                    }
+                    
+                    productCard.innerHTML = `
+                        <div class="product-image">
+                            <img src="${product.image || 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23e9ecef\'/><circle cx=\'200\' cy=\'150\' r=\'100\' fill=\'%2386b875\' fill-opacity=\'0.7\'/></svg>'}" alt="${product.name}">
+                            ${badgeHTML}
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-details">
+                                <div class="product-price">¥${product.price}</div>
+                                <button class="btn-primary add-to-cart" data-id="${product.id}">
+                                    <i class="fas fa-shopping-cart"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    productsGrid.appendChild(productCard);
+                });
+                
+                // 重新绑定加入购物车事件
+                bindAddToCartEvents();
+            }
+            
+            // 绑定加入购物车事件
+            function bindAddToCartEvents() {
+                const addToCartButtons = document.querySelectorAll('.add-to-cart');
+                const cartCount = document.querySelector('.cart-count');
+                let count = parseInt(cartCount.textContent) || 0;
+                
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        count++;
+                        cartCount.textContent = count;
+                        
+                        // 添加动画效果
+                        this.classList.add('added');
+                        this.innerHTML = '<i class="fas fa-check"></i> 已添加';
+                        
+                        setTimeout(() => {
+                            this.classList.remove('added');
+                            this.innerHTML = '<i class="fas fa-shopping-cart"></i> 加入购物车';
+                        }, 1500);
+                    });
+                });
+            }
+            
+            // 购物车按钮点击事件
+            document.querySelector('.cart-button').addEventListener('click', function() {
+                alert('购物车功能即将上线，敬请期待！');
+            });
+            
+            // 初始化 - 尝试加载产品
+            loadProducts();
+        });
+    </script>
+</body>
+</html>

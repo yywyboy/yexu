@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>叶序 - 艺术与自然的和谐</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入字体 Awesome 用于图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>叶序</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="shuye.html">树叶</a></li>
+                <li><a href="zhoubian.html">周边</a></li>
+                <li><a href="huaxiang.html">画廊</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>叶序</h1>
+            <p>探索自然的艺术之美，发现树叶排列的数学奥秘</p>
+            <a href="shuye.html" class="btn-primary">探索树叶世界</a>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- 简介区域 -->
+    <section class="intro">
+        <div class="container">
+            <h2>关于叶序</h2>
+            <p>叶序，即植物叶子在茎上的排列方式，展现了自然中令人惊叹的数学规律与美学设计。每一片叶子都有其独特的生长轨迹，形成了螺旋、对生、轮生等不同的排列模式。这些模式不仅具有科学价值，更是自然艺术的完美体现。</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>树叶</h3>
+                    <p>探索不同种类树叶的结构特征与排列规律</p>
+                    <a href="shuye.html" class="btn-secondary">了解更多</a>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-gift"></i></div>
+                    <h3>周边</h3>
+                    <p>基于叶序灵感设计的精美艺术品与实用周边</p>
+                    <a href="zhoubian.html" class="btn-secondary">查看产品</a>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-images"></i></div>
+                    <h3>画廊</h3>
+                    <p>欣赏捕捉自然叶序之美的摄影与艺术作品</p>
+                    <a href="huaxiang.html" class="btn-secondary">浏览画廊</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选作品区域 -->
+    <section class="featured">
+        <div class="container">
+            <h2>精选作品</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img"></div>
+                    <div class="gallery-info">
+                        <h4>向日葵螺旋</h4>
+                        <p>展现斐波那契数列的自然之美</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img"></div>
+                    <div class="gallery-info">
+                        <h4>银杏扇形</h4>
+                        <p>古老树种的对称美学</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img"></div>
+                    <div class="gallery-info">
+                        <h4>枫叶交织</h4>
+                        <p>秋季色彩的艺术排列</p>
+                    </div>
+                </div>
+            </div>
+            <a href="huaxiang.html" class="btn-primary">查看更多作品</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>叶序</h2>
+                    <p>艺术与自然的和谐</p>
+                </div>
+                <div class="footer-links">
+                    <h3>导航</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="shuye.html">树叶</a></li>
+                        <li><a href="zhoubian.html">周边</a></li>
+                        <li><a href="huaxiang.html">画廊</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-weibo"></i></a></li>
+                        <li><a href="#"><i class="fab fa-weixin"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我们</h3>
+                    <p>邮箱：info@yexu.com</p>
+                    <p>电话：123-4567-8910</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 叶序艺术. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 用于响应式导航 -->
+    <script>
+        // 汉堡菜单交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // 点击导航链接关闭菜单
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
